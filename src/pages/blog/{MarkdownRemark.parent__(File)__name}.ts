@@ -1,19 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import BlogComponent from '../../component/BlogComponent';
-
-export interface BlogProps {
-  data: {
-    markdownRemark: {
-      frontmatter: {
-        date: string;
-        title: string;
-      };
-      html: string;
-      id: string;
-    };
-  };
-}
+import { BlogProps } from "../../component/markdownProps";
 
 const BlogPage: React.FC<BlogProps>= (props) => {
     return React.createElement('div', null, React.createElement(BlogComponent, {...props}));
