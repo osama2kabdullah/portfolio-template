@@ -1,9 +1,22 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import BlogComponent from '../../component/BlogComponent';
 
-const BlogPage = (props:void) => {
-    console.log(props) //recive blog html from markdown
-    return ; //I want to write JSX here, But I cannot do it
+export interface BlogProps {
+  data: {
+    markdownRemark: {
+      frontmatter: {
+        date: string;
+        title: string;
+      };
+      html: string;
+      id: string;
+    };
+  };
+}
+
+const BlogPage: React.FC<BlogProps>= (props) => {
+    return React.createElement('div', null, React.createElement(BlogComponent, {...props}));
 };
 
 // bellow this is graphQL query for fetch html data
