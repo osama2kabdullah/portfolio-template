@@ -1,0 +1,43 @@
+$text-color: #fff;
+$b-redius: 4px;
+body {
+  background-color: #1e293b;
+  color: $text-color;
+}
+h1 {
+  color: $text-color;
+  font-size: 3em;
+}
+p {
+  font-size: 1.3em;
+}
+@mixin code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #333;
+  border: 1px solid #5f5f5f;
+  color: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: $b-redius;
+  font-size: 0.9rem;
+}
+pre {
+  @include code;
+}
+p {
+  code {
+    @include code;
+  }
+}
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: #4a4a4a;
+  color: $text-color;
+}

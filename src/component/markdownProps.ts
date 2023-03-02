@@ -1,4 +1,4 @@
-export interface BlogProps {
+export interface markdownProps {
   data: {
     markdownRemark: {
       frontmatter: {
@@ -14,6 +14,7 @@ export interface BlogProps {
           date: string;
           description: string;
           title: string;
+          type: string;
         };
         parent: {
           name: string
