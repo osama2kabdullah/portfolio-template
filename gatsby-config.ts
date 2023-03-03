@@ -37,7 +37,20 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/images`,
       },
       __key: "image",
-    }
+    },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [`https://fonts.googleapis.com`],
+        web: [
+          {
+            name: `Lato`,
+            file: `https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap`,
+          },
+        ],
+      },
+    },
   ],
 };
 

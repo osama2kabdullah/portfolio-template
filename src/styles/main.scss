@@ -1,5 +1,6 @@
 $text-color: #fff;
 $b-redius: 4px;
+$p-color: #bbbbbb;
 
 @mixin code {
   font-family: "Courier New", Courier, monospace;
@@ -9,11 +10,20 @@ $b-redius: 4px;
   padding: 0.2rem 0.4rem;
   border-radius: $b-redius;
   font-size: 0.9rem;
+  overflow-x: scroll;
 }
 
 body {
   background-color: #1e293b;
   color: $text-color;
+  font-family: "Lato";
+}
+p {
+  font-size: large;
+  color: #bbbbbb;
+  code {
+    @include code;
+  }
 }
 pre {
   @include code;
@@ -53,16 +63,88 @@ pre {
   margin: auto;
 }
 
+$table-border: 1px solid $p-color;
+
+table {
+  border: $table-border;
+  border-collapse: collapse;
+  min-width: 50px;
+  td {
+    border: $table-border;
+    padding: 0.7em;
+  }
+}
+
+.bio-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 2em;
+  padding: 1em;
+}
+.profile-image {
+  border-radius: $b-redius;
+}
+
+.project-showcase-section {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  gap: 4%;
+}
+
+.project-card {
+  background-color: #333;
+  border-radius: $b-redius;
+  overflow: hidden;
+  .project-card-desc {
+    padding: 1em;
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .icon {
+          display: inline-block;
+          transition: transform 0.2s ease-in-out;
+        }
+      
+        &:hover .icon {
+          transform: translateY(-3px);
+        }
+      }      
+    }
+  }
+}
+
 // @media only screen and (max-width: 1200px){
 //   /*Tablets [601px -> 1200px]*/
 // }
 @media only screen and (max-width: 768px) {
-  .container, .gist-main-title {
+  .container,
+  .gist-main-title {
     width: 95%;
   }
 }
 @media only screen and (max-width: 425px) {
-  .container, .gist-main-title {
-    width: 98%;
+  .container,
+  .gist-main-title {
+    width: 100%;
+  }
+  .gist-card {
+    padding: 0.8em;
+  }
+  .profile-image {
+    width: 70%;
+  }
+  .bio-section {
+    flex-direction: column;
+    gap: 3em;
+    padding: 0.4em;
+  }
+  .project-showcase-section {
+    grid-template-columns: auto;
   }
 }

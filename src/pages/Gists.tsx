@@ -8,6 +8,7 @@ const Gists: React.FC<markdownProps> = ({ data }) => {
 
   return (
     <section className="container gists-container">
+      <h1 style={{textAlign: 'center'}}>Descover my gists</h1>
       {gists.map((gist) => (
         <div className="gist-card">
           <small className="badge">{gist.frontmatter.type}</small>
