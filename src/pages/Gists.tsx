@@ -7,16 +7,17 @@ const Gists: React.FC<markdownProps> = ({ data }) => {
   const gists = data.allMarkdownRemark.nodes;
 
   return (
-    <section>
+    <section className="container gists-container">
       {gists.map((gist) => (
-        <div>
-          <Link to={`/gist/${gist.parent.name}`}>
-              <small className="badge">{gist.frontmatter.type}</small>
-            <h2>
-              {gist.frontmatter.title}{" "}
-            </h2>
-          </Link>
-          <p>{gist.frontmatter.description}</p>
+        <div className="gist-card">
+          <small className="badge">{gist.frontmatter.type}</small>
+          <h2>{gist.frontmatter.title} </h2>
+          <p>
+            {gist.frontmatter.description}{" "}
+            <Link className="link" to={`/gist/${gist.parent.name}`}>
+              Read ➙
+            </Link>
+          </p>
         </div>
       ))}
     </section>

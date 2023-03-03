@@ -1,16 +1,6 @@
 $text-color: #fff;
 $b-redius: 4px;
-body {
-  background-color: #1e293b;
-  color: $text-color;
-}
-h1 {
-  color: $text-color;
-  font-size: 3em;
-}
-p {
-  font-size: 1.3em;
-}
+
 @mixin code {
   font-family: "Courier New", Courier, monospace;
   background-color: #333;
@@ -20,13 +10,13 @@ p {
   border-radius: $b-redius;
   font-size: 0.9rem;
 }
+
+body {
+  background-color: #1e293b;
+  color: $text-color;
+}
 pre {
   @include code;
-}
-p {
-  code {
-    @include code;
-  }
 }
 .badge {
   display: inline-block;
@@ -40,4 +30,39 @@ p {
   border-radius: 0.25rem;
   background-color: #4a4a4a;
   color: $text-color;
+}
+.container {
+  width: 70%;
+  margin: auto;
+}
+.gists-container {
+  display: grid;
+  gap: 2em;
+}
+.gist-card {
+  background-color: #333;
+  border-radius: $b-redius;
+  padding: 1em;
+}
+.link {
+  color: $text-color;
+  font-size: medium;
+}
+.gist-main-title {
+  width: 80%;
+  margin: auto;
+}
+
+// @media only screen and (max-width: 1200px){
+//   /*Tablets [601px -> 1200px]*/
+// }
+@media only screen and (max-width: 768px) {
+  .container, .gist-main-title {
+    width: 95%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .container, .gist-main-title {
+    width: 98%;
+  }
 }

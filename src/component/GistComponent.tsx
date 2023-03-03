@@ -5,14 +5,19 @@ import { markdownProps } from "./markdownProps";
 
 const GistComponent: React.FC<markdownProps> = (props) => {
   const html = props.data.markdownRemark.html;
-  const { title, date } = props.data.markdownRemark.frontmatter; 
-  
+  const { title, date } = props.data.markdownRemark.frontmatter;
+
   return (
     <>
       <Link to="/Gists">↩ Back</Link>
-      <h1>{title}</h1>
-      <small>{new Date(date).toDateString()}</small>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <div className="gist-main-title">
+        <h1>{title}</h1>
+        <small>{new Date(date).toDateString()}</small>
+      </div>
+      <div
+        className="container"
+        dangerouslySetInnerHTML={{ __html: html }}
+      ></div>
     </>
   );
 };
