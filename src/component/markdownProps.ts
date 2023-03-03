@@ -1,9 +1,12 @@
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 export interface markdownProps {
   data: {
     markdownRemark: {
       frontmatter: {
         date: string;
         title: string;
+        thumb: IGatsbyImageData
       };
       html: string;
       id: string;
