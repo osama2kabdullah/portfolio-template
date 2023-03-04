@@ -10,7 +10,7 @@ const GistComponent: React.FC<markdownProps> = (props) => {
   return (
     <>
       <div className="gist-main-title">
-      <Link className="link" to="/Gists">↩ Back</Link>
+      <Link className="link-x-minus" to="/Gists"><span className="icon">↩</span> Back</Link>
         <h1>{title}</h1>
         <small>{new Date(date).toDateString()}</small>
         <br />

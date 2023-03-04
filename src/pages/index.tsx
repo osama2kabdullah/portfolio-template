@@ -77,14 +77,26 @@ const IndexPage: React.FC<PageProps> = () => {
                 quibusdam quidem nulla impedit suscipit reiciendis totam in
                 modi, a perspiciatis eum debitis exercitationem consectetur
                 quisquam!{" "}
-                <Link className="link" to={`/gist/dsds`}>
-                  Read case study ➙
+                <Link className="link-x" to={`/gist/dsds`}>
+                  Read case study <span className="icon">➙</span>
                 </Link>
               </p>
               <div className="project-links">
-              <li><span className="icon">⇱</span>Github</li>
-              <li>⇱ Front-end code</li>
-              <li>⇱ Back-end code</li>
+                <li>
+                  <Link to="/" className="link-y">
+                    <span className="icon">⇱</span>Live
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/" className="link-y">
+                    <span className="icon">⇱</span>Front-end code
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/" className="link-y">
+                    <span className="icon">⇱</span>Back-end code
+                  </Link>
+                </li>
               </div>
             </div>
           </div>

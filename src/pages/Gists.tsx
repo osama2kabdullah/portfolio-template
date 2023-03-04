@@ -15,8 +15,8 @@ const Gists: React.FC<markdownProps> = ({ data }) => {
           <h2>{gist.frontmatter.title} </h2>
           <p>
             {gist.frontmatter.description}{" "}
-            <Link className="link" to={`/gist/${gist.parent.name}`}>
-              Read ➙
+            <Link className="link-x" to={`/gist/${gist.parent.name}`}>
+              Read <span className="icon">➙</span>
             </Link>
           </p>
         </div>
