@@ -26,8 +26,8 @@ npm run typecheck   // runs the TypeScript compiler to check for any type errors
 ```
 That should get you up and running with this project!
 
-## Repo structured
-
+## Project folder structured
+```
 gatsby-markdown-boilerplate/
   ├── node_modules/
   ├── src/
@@ -48,6 +48,7 @@ gatsby-markdown-boilerplate/
   ├── package-lock.json
   ├── package.json
   └── README.md
+```
 
 Let me explain each of these folders and files:
 - `node_modules`: This folder contains all the dependencies that the project requires. You don't need to worry about this folder, as it is created automatically when you run the `npm install` command.
@@ -70,18 +71,19 @@ To use this repository, simply clone it to your local machine and start customiz
 1. **Clone the repository:** Use the `git clone` command to create a local copy of the repository on your computer.
 
 ```bash
-git clone https://github.com/<your-username>/gatsby-markdown-boilerplate.git
+git clone https://github.com/osama2kabdullah/portfolio-template.git
 ```
 
 2. **Install the dependencies:** Use the `npm install` command to install the project's dependencies.
 
 ```bash
-cd gatsby-markdown-boilerplate
+cd master
 npm install
 ```
 
 3. **Customize the project:** Use your preferred code editor to make changes to the project's files. You can customize the look and feel of the site, add new pages, and more.
-4. **Run the development server:** Use the `npm start` command to start the GatsbyJS development server. This will compile your changes and make the site available at [http://localhost:8000/](http://localhost:8000/).
+4. **Configure VS Code settings:** If you want to use the same VS Code settings as the project's maintainers, copy the recommended settings from the project's documentation and paste them into your VS Code `settings.json` file.
+4. **Run the development server:** Use the `npm start` command to start the GatsbyJS development server. This will compile your changes and make the site available at [http://localhost:8000/](http://localhost:8000/) and `http://192.168.x.x:8000/`.
 
 ```bash
 npm start
@@ -102,13 +104,13 @@ Thanks for considering contributing to the GatsbyJS project! We welcome all type
 1. **Fork the repository:** This creates a copy of the project on your own GitHub account that you can make changes to.
 
 ```bash
-git clone https://github.com/<your-username>/gatsby-markdown-boilerplate.git
+git clone https://github.com/<your-username>/<repo-name>.git
 ```
 
 2. **Clone your fork:** Use the `git clone` command to create a local copy of your fork on your computer.
 
 ```bash
-git clone https://github.com/<your-username>/gatsby-markdown-boilerplate.git
+git clone https://github.com/<your-username>/<repo-name>.git
 ```
 
 3. **Make your changes:** This can involve writing code, updating documentation, or making other types of improvements.

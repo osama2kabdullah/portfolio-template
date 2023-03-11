@@ -117,7 +117,9 @@ table {
   overflow: hidden;
   .project-card-desc {
     padding: 1em;
-    .project-links {
+  }
+}
+.project-links {
       display: flex;
       flex-wrap: wrap;
       gap: 1em;
@@ -125,8 +127,6 @@ table {
         list-style: none;
       }
     }
-  }
-}
 
 // @media only screen and (max-width: 1200px){
 //   /*Tablets [601px -> 1200px]*/
@@ -135,6 +135,9 @@ table {
   .container,
   .gist-main-title {
     width: 95%;
+  }
+  .project-showcase-section {
+    grid-template-columns: auto;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -152,8 +155,5 @@ table {
     flex-direction: column;
     gap: 3em;
     padding: 0.4em;
-  }
-  .project-showcase-section {
-    grid-template-columns: auto;
   }
 }

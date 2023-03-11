@@ -1,28 +1,31 @@
 import * as React from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
+import { graphql, HeadFC, Link, PageProps, useStaticQuery } from "gatsby";
 import "../styles/main.scss";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 const IndexPage: React.FC<PageProps> = () => {
+
+  const birthdate = new Date(2001, 10, 25);  // months are zero-indexed, so 10 represents November
+const now = new Date();
+const diff = now.getTime() - birthdate.getTime();  // get difference between now and birthdate in milliseconds
+const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));  // convert milliseconds to years (taking leap years into account)
+
+console.log(age);  // output: your age in years
+
+  
   const tableData = [
     { title: "Name", value: "Md. Abdullah" },
-    { title: "Home", value: "Shiromoni, Phultola, Khulna, Bangladesh" },
-    { title: "NID", value: "2716827121" },
-    { title: "Call number", value: "019728121" },
+    { title: "Address", value: "Shiromoni, Phultola, Khulna, Bangladesh" },
     { title: "Email", value: "abdullah21673@gotmal.com" },
-    { title: "Age", value: `${21} (Born in ${2001})` },
-    { title: "Designation", value: "Web developer" },
-    { title: "Designation", value: "Web developer" },
-    { title: "Designation", value: "Web developer" },
-    { title: "Designation", value: "Web developer" },
-    { title: "Designation", value: "Web developer" },
+    { title: "Age", value: age },
+    { title: "Profession", value: "Software Development" },
+    { title: "Passion", value: "Computer programming" },
+    { title: "Current Job Role", value: "Front-end web developer" },
+    { title: "Personality", value: "Introvert" }
   ];
 
   return (
     <>
-      <Link to="/Gists">
-        <h1>Gist page</h1>
-      </Link>
       <div className="bio-section">
         <StaticImage
           src="../images/profile_image.jpeg"
@@ -53,7 +56,21 @@ const IndexPage: React.FC<PageProps> = () => {
           obcaecati, perspiciatis exercitationem nam eum quo commodi nisi
           nostrum libero ex incidunt voluptates, tempora dicta iusto quibusdam
           ad animi cumque?
+          <br/>
+          Read my <Link to="/Gists" className="link-x"> gist <span className="icon">➙</span></Link>
+          <br/>
+          <br/>
+          <b>Skills:</b> JavaScript, TypeScript, HTML, CSS, Git
+          <br/>
+          <br/>
+          <div className="project-links">
+          <Link to="/" className="link-y"> <span className="icon">⇱</span>Github</Link>
+          <Link to="/" className="link-y"> <span className="icon">⇱</span>Stackoverflow</Link>
+          <Link to="/" className="link-y"> <span className="icon">⇱</span>Linkdin</Link>
+          <Link to="/" className="link-y"> <span className="icon">⇱</span>Twitter</Link>
+          </div>
         </p>
+        <br/>
         <h2>Developer journey</h2>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae illum
@@ -61,6 +78,7 @@ const IndexPage: React.FC<PageProps> = () => {
           nostrum libero ex incidunt voluptates, tempora dicta iusto quibusdam
           ad animi cumque?
         </p>
+        <br/>
         <h2>Projects</h2>
         <div className="project-showcase-section">
           <div className="project-card">
