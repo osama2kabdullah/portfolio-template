@@ -46,4 +46,5 @@ export const query = graphql`
   }
 `;
 
+export const Head: HeadFC = () => <title>Gists - Abdullah</title>;
 export default Gists;

@@ -9,9 +9,6 @@ const IndexPage: React.FC<PageProps> = () => {
 const now = new Date();
 const diff = now.getTime() - birthdate.getTime();  // get difference between now and birthdate in milliseconds
 const age = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));  // convert milliseconds to years (taking leap years into account)
-
-console.log(age);  // output: your age in years
-
   
   const tableData = [
     { title: "Name", value: "Md. Abdullah" },
@@ -64,10 +61,14 @@ console.log(age);  // output: your age in years
           <br/>
           <br/>
           <div className="project-links">
-          <Link to="/" className="link-y"> <span className="icon">⇱</span>Github</Link>
-          <Link to="/" className="link-y"> <span className="icon">⇱</span>Stackoverflow</Link>
-          <Link to="/" className="link-y"> <span className="icon">⇱</span>Linkdin</Link>
-          <Link to="/" className="link-y"> <span className="icon">⇱</span>Twitter</Link>
+
+          <a href="https://github.com/osama2kabdullah" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Github</a>
+
+          <a href="https://stackoverflow.com/users/19859792/osama-abdullah" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Stackoverflow</a>
+
+          <a href="https://www.linkedin.com/in/md-abdullah-9121b5228" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Linkedin</a>
+
+          <a href="https://twitter.com/OsamaAb41115937" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Twitter</a>
           </div>
         </p>
         <br/>
@@ -83,7 +84,7 @@ console.log(age);  // output: your age in years
         <div className="project-showcase-section">
           <div className="project-card">
             <StaticImage
-              src="../images/7335301_3606208.jpg"
+              src="../images/travel-guru.png"
               placeholder="blurred"
               alt="osama"
             />
@@ -95,25 +96,18 @@ console.log(age);  // output: your age in years
                 quibusdam quidem nulla impedit suscipit reiciendis totam in
                 modi, a perspiciatis eum debitis exercitationem consectetur
                 quisquam!{" "}
-                <Link className="link-x" to={`/gist/dsds`}>
-                  Read case study <span className="icon">➙</span>
-                </Link>
+                <a href="https://github.com/osama2kabdullah/travel-guru-client/wiki" target="_blank" rel="noopener noreferrer" className="link-x">
+                  Read case study <span className="icon">➙</span></a>
               </p>
               <div className="project-links">
                 <li>
-                  <Link to="/" className="link-y">
-                    <span className="icon">⇱</span>Live
-                  </Link>
+                <a href="https://travel-guru-b4986.firebaseapp.com/" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Live</a>
                 </li>
                 <li>
-                  <Link to="/" className="link-y">
-                    <span className="icon">⇱</span>Front-end code
-                  </Link>
+                  <a href="https://github.com/osama2kabdullah/travel-guru-client" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Front-end code</a>
                 </li>
                 <li>
-                  <Link to="/" className="link-y">
-                    <span className="icon">⇱</span>Back-end code
-                  </Link>
+                 <a href="https://github.com/osama2kabdullah/travel-guru-server" target="_blank" rel="noopener noreferrer" className="link-y"><span className="icon">⇱</span>Back-end code</a>
                 </li>
               </div>
             </div>
@@ -126,4 +120,4 @@ console.log(age);  // output: your age in years
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>About - Abdullah</title>;

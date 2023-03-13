@@ -36,12 +36,6 @@ body {
 p {
   font-size: large;
   color: #bbbbbb;
-  code {
-    @include code;
-  }
-}
-pre {
-  @include code;
 }
 .badge {
   display: inline-block;
