@@ -76,6 +76,10 @@ p {
   width: 80%;
   margin: auto;
 }
+.audio-play-btn {
+  margin: .3em;
+  cursor: pointer
+}
 
 $table-border: 1px solid $p-color;
 
@@ -114,14 +118,17 @@ table {
     padding: 1em;
   }
 }
+@mixin links-parants{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  li {
+    list-style: none;
+  }
+}
 .project-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      li {
-        list-style: none;
-      }
-    }
+  @include links-parants;
+}
 
 // @media only screen and (max-width: 1200px){
 //   /*Tablets [601px -> 1200px]*/
@@ -137,6 +144,14 @@ table {
   .bio-section {
     align-items:start
   }
+  .bio-section {
+    flex-direction: column;
+    gap: 3em;
+    padding: 0.4em;
+  }
+  .profile-image {
+    width: 50%;
+  }
 }
 @media only screen and (max-width: 425px) {
   .container,
@@ -148,10 +163,5 @@ table {
   }
   .profile-image {
     width: 70%;
-  }
-  .bio-section {
-    flex-direction: column;
-    gap: 3em;
-    padding: 0.4em;
   }
 }

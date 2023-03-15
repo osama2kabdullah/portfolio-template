@@ -28,40 +28,51 @@ That should get you up and running with this project!
 
 ## Project folder structured
 ```
-gatsby-markdown-boilerplate/
+portfolio-template/
   ├── node_modules/
+  ├── .cache/
+  ├── public/
+  ├── gists/
   ├── src/
-  │   ├── components/
-  │   │   ├── Layout.js
-  │   │   └── SEO.js
+  │   ├── component/
+  │   │   ├── markdownProps.ts
+  │   │   └── GistComponent.tsx
+  │   ├── images/
   │   ├── pages/
-  │   │   ├── index.js
-  │   │   └── 404.js
-  │   ├── styles/
-  │   │   ├── global.css
-  │   │   └── index.css
-  │   └── templates/
+  │   │   ├── gist/
+  │   │   │   └── {MarkdownRemark.parent__(File)__name}.ts
+  │   │   ├── Gists.tsx
+  │   │   ├── index.tsx
+  │   │   └── 404.tsx
+  │   └── styles/
   │       └── blog-post.js
   ├── .gitignore
-  ├── gatsby-config.js
+  ├── gatsby-config.ts
+  ├── gatsby-browser.ts
   ├── LICENSE
   ├── package-lock.json
   ├── package.json
-  └── README.md
+  ├── README.md
+  └── tsconfig.json
 ```
 
 Let me explain each of these folders and files:
 - `node_modules`: This folder contains all the dependencies that the project requires. You don't need to worry about this folder, as it is created automatically when you run the `npm install` command.
+- `.cache`:
+- `public`:
+- `gists`:
 - `src`: This folder contains all the source code for the project. It's where you'll make most of your changes.
-  - `components`: This folder contains the React components that make up the site. The `Layout` component provides the basic structure of the site, while the `SEO` component helps with search engine optimization.
+  - `component`: This folder contains the React components that make up the site. The `Layout` component provides the basic structure of the site, while the `SEO` component helps with search engine optimization.
   - `pages`: This folder contains the pages of the site. In this project, there are two pages: `index.js`, which serves as the homepage, and `404.js`, which is displayed when a page is not found.
   - `styles`: This folder contains the CSS files for the project. `global.css` contains styles that are applied to the entire site, while `index.css` contains styles that are specific to the homepage.
-  - `templates`: This folder contains the templates for the site. In this project, there is one template: `blog-post.js`. This template is used to display individual blog posts.
-- `gitignore`: This file tells Git which files and folders to ignore when committing changes. This can be helpful for excluding files that are generated automatically or contain sensitive information.
-- `gatsby-config.js`: This file contains configuration settings for the GatsbyJS site, such as the site title, description, and plugins.
+  - `images`: This folder contains the templates for the site. In this project, there is one template: `blog-post.js`. This template is used to display individual blog posts.
+- `.gitignore`: This file tells Git which files and folders to ignore when committing changes. This can be helpful for excluding files that are generated automatically or contain sensitive information.
+- `gatsby-config.ts`: This file contains configuration settings for the GatsbyJS site, such as the site title, description, and plugins.
+- `gatsby-browser.ts`:
 - `LICENSE`: This file contains the license under which the project is released. In this case, the project is released under the MIT license.
 - `package-lock.json`: This file contains information about the exact versions of dependencies that the project requires. You don't need to worry about this file, as it is created automatically when you run the `npm install` command.
 - `package.json`: This file contains metadata about the project, such as the name, version, and dependencies. It also contains scripts that can be run using the `npm run` command.
+- `tsconfig.json`:
 - `README.md`: This file contains information about the project, including how to use it and how to contribute to it. It's the file you're currently reading!
 
 ## How to Use This Repo
@@ -77,17 +88,13 @@ git clone https://github.com/osama2kabdullah/portfolio-template.git
 2. **Install the dependencies:** Use the `npm install` command to install the project's dependencies.
 
 ```bash
-cd master
+cd portfolio-template
 npm install
 ```
 
 3. **Customize the project:** Use your preferred code editor to make changes to the project's files. You can customize the look and feel of the site, add new pages, and more.
-4. **Configure VS Code settings:** If you want to use the same VS Code settings as the project's maintainers, copy the recommended settings from the project's documentation and paste them into your VS Code `settings.json` file.
-4. **Run the development server:** Use the `npm start` command to start the GatsbyJS development server. This will compile your changes and make the site available at [http://localhost:8000/](http://localhost:8000/) and `http://192.168.x.x:8000/`.
 
-```bash
-npm start
-```
+4. **Run the development server:** Use the `npm start` command to start the GatsbyJS development server. This will compile your changes and make the site available at [http://localhost:8000/](http://localhost:8000/) and `http://192.168.x.x:8000/`.
 
 5. **Build the site for production:** Use the `npm run build` command to build the site for production. This will create a set of static files that can be uploaded to a web server.
 
@@ -99,13 +106,9 @@ That's it! With these steps, you should be able to get up and running quickly wi
 
 ## Contributing to this Project
 
-Thanks for considering contributing to the GatsbyJS project! We welcome all types of contributions, from bug reports to feature requests to code changes. Here's how you can get started:
+Thanks for considering contributing to the GatsbyJS project! Welcome all types of contributions, from bug reports to feature requests to code changes. Here's how you can get started:
 
 1. **Fork the repository:** This creates a copy of the project on your own GitHub account that you can make changes to.
-
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-```
 
 2. **Clone your fork:** Use the `git clone` command to create a local copy of your fork on your computer.
 
@@ -115,6 +118,6 @@ git clone https://github.com/<your-username>/<repo-name>.git
 
 3. **Make your changes:** This can involve writing code, updating documentation, or making other types of improvements.
 4. **Test your changes:** Before submitting a pull request, make sure your changes work as expected.
-5. **Submit a pull request:** Once you're confident your changes are ready, submit a pull request to the main GatsbyJS repository. We'll review your changes and provide feedback if necessary.
+5. **Submit a pull request:** Once you're confident your changes are ready, submit a pull request to the this GatsbyJS repository. I'll review your changes and provide feedback if necessary.
 
 That's it! We appreciate all contributions to the project, no matter how big or small.
