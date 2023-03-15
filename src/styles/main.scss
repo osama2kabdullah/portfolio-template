@@ -94,6 +94,7 @@ table {
   justify-content: space-around;
   gap: 2em;
   padding: 1em;
+  align-items:center
 }
 .profile-image {
   border-radius: $b-redius;
@@ -132,6 +133,9 @@ table {
   }
   .project-showcase-section {
     grid-template-columns: auto;
+  }
+  .bio-section {
+    align-items:start
   }
 }
 @media only screen and (max-width: 425px) {
