@@ -1,73 +1,181 @@
-import type { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig, PluginRef } from "gatsby"
+import "dotenv/config"
+
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `portfolio-template`,
-    siteUrl: `https://www.yourdomain.tld`,
+    // You can overwrite values here that are used for the SEO component
+    // You can also add new values here to query them like usual
+    // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
+    siteTitle: `Osama Abdullah`,
+    siteTitleAlt: `Osama Abdullah`,
+    siteHeadline: `Osama Abdullah`,
+    siteUrl: `https://osamaabdullah.gatsbyjs.io/`,
+    siteDescription: `Osama Abdullah blog`,
+    siteImage: `/banner.jpg`,
+    siteLanguage: `en`,
+    author: `abdullah21673@hotmail.com`,
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
+  trailingSlash: `never`,
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-image",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `@lekoarts/gatsby-theme-minimal-blog`,
+      // See the theme's README for all available options
       options: {
-        icon: "src/images/icon.png",
-      },
-    },
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    // "gatsby-transformer-remark",
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-        {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            classPrefix: "language-",
-        inlineCodeMarker: null,
-        aliases: {},
-        showLineNumbers: true,
-        noInlineHighlight: false,
-          }
-        }]
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "gists",
-        path: `${__dirname}/gists`,
-      },
-      __key: "gists",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "image",
-        path: `${__dirname}/src/images`,
-      },
-      __key: "image",
-    },
-    {
-      resolve: `gatsby-omni-font-loader`,
-      options: {
-        enableListener: true,
-        preconnect: [`https://fonts.googleapis.com`],
-        web: [
+        navigation: [
           {
-            name: `Lato`,
-            file: `https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap`,
+            title: `Blog`,
+            slug: `/blog`,
+          },
+          {
+            title: `About`,
+            slug: `/about`,
+          },
+          {
+            title: `Resume`,
+            slug: `/resume`,
+          },
+        ],
+        externalLinks: [
+          {
+            name: `Github`,
+            url: `https://github.com/osama2kabdullah`,
+          },
+          {
+            name: `Linkedin`,
+            url: `https://www.linkedin.com/in/md-abdullah-9121b5228`,
           },
         ],
       },
     },
-  ],
-};
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Osama Abdullah`,
+        short_name: `Osama-blog`,
+        description: `Osama Abdullah blog`,
+        start_url: `/`,
+        background_color: `#fff`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#6B46C1`,
+        display: `standalone`,
+        icons: [
+          {
+            src: `/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title: siteTitle
+                description: siteDescription
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({
+              query: { site, allPost },
+            }: {
+              query: { allPost: IAllPost; site: { siteMetadata: ISiteMetadata } }
+            }) =>
+              allPost.nodes.map((post) => {
+                const url = site.siteMetadata.siteUrl + post.slug
+                const content = `<p>${post.excerpt}</p><div style="margin-top: 50px; font-style: italic;"><strong><a href="${url}">Keep reading</a>.</strong></div><br /> <br />`
 
-export default config;
+                return {
+                  title: post.title,
+                  date: post.date,
+                  excerpt: post.excerpt,
+                  url,
+                  guid: url,
+                  custom_elements: [{ "content:encoded": content }],
+                }
+              }),
+            query: `{
+  allPost(sort: {date: DESC}) {
+    nodes {
+      title
+      date(formatString: "MMMM D, YYYY")
+      excerpt
+      slug
+    }
+  }
+}`,
+            output: `rss.xml`,
+            title: `Osama Blog`,
+          },
+        ],
+      },
+    },
+    shouldAnalyseBundle && {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+      options: {
+        analyzerMode: `static`,
+        reportFilename: `_bundle.html`,
+        openAnalyzer: false,
+      },
+    },
+  ].filter(Boolean) as Array<PluginRef>,
+}
+
+export default config
+
+interface IPostTag {
+  name: string
+  slug: string
+}
+
+interface IPost {
+  slug: string
+  title: string
+  defer: boolean
+  date: string
+  excerpt: string
+  contentFilePath: string
+  html: string
+  timeToRead: number
+  wordCount: number
+  tags: Array<IPostTag>
+  banner: any
+  description: string
+  canonicalUrl: string
+}
+
+interface IAllPost {
+  nodes: Array<IPost>
+}
+
+interface ISiteMetadata {
+  siteTitle: string
+  siteTitleAlt: string
+  siteHeadline: string
+  siteUrl: string
+  siteDescription: string
+  siteImage: string
+  author: string
+}

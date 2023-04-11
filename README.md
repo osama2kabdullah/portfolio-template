@@ -4,15 +4,16 @@ I built this project to provide a starting point for GatsbyJS projects that use 
 
 ## Screenshots of UI
 
-![image]()
+![image](./static/3-devices-black.png)
 
 ## Technology
 
 - **GatsbyJS:** a framework for building static websites with ReactJS
 - **ReactJS:** a JavaScript library for building user interfaces
 - **MDX:** a format that allows you to write JSX (a syntax extension for JavaScript that allows you to write HTML-like code in your JavaScript files) in Markdown documents
-- **Sass:** a CSS preprocessor that allows you to use variables, mixins, and other advanced features in your CSS
 - **TypeScript:** a superset of JavaScript that adds static typing to the language, making it easier to catch bugs before they happen
+- **GraphQL:** query data from API
+- **gatsby-theme-minimal-blog v6.0.5:** A minimal blog theme by [LekoArts Lennart](https://github.com/LekoArts/gatsby-starter-minimal-blog)
 
 To use this project, you'll need to have Node.js and npm (Node Package Manager) installed on your computer. Once you have those installed, you can run the following commands in your terminal:
 
@@ -22,47 +23,34 @@ npm run develop   // starts the development server and opens the site in your br
 npm run build   // builds the site for production
 npm run serve   // serves the production build of the site locally
 npm run clean   // cleans the cache and public directories
-npm run typecheck   // runs the TypeScript compiler to check for any type errors in your code
 ```
 That should get you up and running with this project!
 
 ## Project folder structured
 ```
-gatsby-markdown-boilerplate/
-  ├── node_modules/
-  ├── src/
-  │   ├── components/
-  │   │   ├── Layout.js
-  │   │   └── SEO.js
+portfolio-template/
+  ├── static/ *images, *icons
+  ├── content/
   │   ├── pages/
-  │   │   ├── index.js
-  │   │   └── 404.js
-  │   ├── styles/
-  │   │   ├── global.css
-  │   │   └── index.css
-  │   └── templates/
-  │       └── blog-post.js
+  │   │   ├── about/index.mdx
+  │   │   └── resume/index.mdx
+  │   └── posts/
+  │       └── [post name]/index.mdx
+  ├── src/
+  │   ├── @lekoarts/
+  │   │   └── gatsby-theme-minimal-blog/
+  │   │       ├── bottom.mdx 
+  │   │       └── hero.mdx
+  │   └── pages/
+  │       └── 404.js
   ├── .gitignore
-  ├── gatsby-config.js
+  ├── gatsby-config.ts
   ├── LICENSE
-  ├── package-lock.json
+  ├── tsconfig.json
+  ├── npmrc
   ├── package.json
   └── README.md
 ```
-
-Let me explain each of these folders and files:
-- `node_modules`: This folder contains all the dependencies that the project requires. You don't need to worry about this folder, as it is created automatically when you run the `npm install` command.
-- `src`: This folder contains all the source code for the project. It's where you'll make most of your changes.
-  - `components`: This folder contains the React components that make up the site. The `Layout` component provides the basic structure of the site, while the `SEO` component helps with search engine optimization.
-  - `pages`: This folder contains the pages of the site. In this project, there are two pages: `index.js`, which serves as the homepage, and `404.js`, which is displayed when a page is not found.
-  - `styles`: This folder contains the CSS files for the project. `global.css` contains styles that are applied to the entire site, while `index.css` contains styles that are specific to the homepage.
-  - `templates`: This folder contains the templates for the site. In this project, there is one template: `blog-post.js`. This template is used to display individual blog posts.
-- `gitignore`: This file tells Git which files and folders to ignore when committing changes. This can be helpful for excluding files that are generated automatically or contain sensitive information.
-- `gatsby-config.js`: This file contains configuration settings for the GatsbyJS site, such as the site title, description, and plugins.
-- `LICENSE`: This file contains the license under which the project is released. In this case, the project is released under the MIT license.
-- `package-lock.json`: This file contains information about the exact versions of dependencies that the project requires. You don't need to worry about this file, as it is created automatically when you run the `npm install` command.
-- `package.json`: This file contains metadata about the project, such as the name, version, and dependencies. It also contains scripts that can be run using the `npm run` command.
-- `README.md`: This file contains information about the project, including how to use it and how to contribute to it. It's the file you're currently reading!
 
 ## How to Use This Repo
 
@@ -82,7 +70,6 @@ npm install
 ```
 
 3. **Customize the project:** Use your preferred code editor to make changes to the project's files. You can customize the look and feel of the site, add new pages, and more.
-4. **Configure VS Code settings:** If you want to use the same VS Code settings as the project's maintainers, copy the recommended settings from the project's documentation and paste them into your VS Code `settings.json` file.
 4. **Run the development server:** Use the `npm start` command to start the GatsbyJS development server. This will compile your changes and make the site available at [http://localhost:8000/](http://localhost:8000/) and `http://192.168.x.x:8000/`.
 
 ```bash
