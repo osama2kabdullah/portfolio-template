@@ -1,10 +1,12 @@
 {
-  "name": "osama-blog",
-  "description": "Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.",
-  "version": "0.1.0",
-  "author": "Osama",
-  "license": "IST",
-  "starter-name": "gatsby-starter-minimal-blog",
+  "name": "portfolio-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "portfolio-template",
+  "author": "osama2kabdullah",
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop -H 0.0.0.0",
