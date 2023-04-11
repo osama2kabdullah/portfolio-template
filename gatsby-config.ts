@@ -9,13 +9,13 @@ const config: GatsbyConfig = {
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.mjs
     siteTitle: `Osama Abdullah`,
-    siteTitleAlt: `Osama Abdullah Blog - Gatsby Theme`,
-    siteHeadline: `Osama Abdullah Blog - Gatsby Theme from @lekoarts`,
+    siteTitleAlt: `Osama Abdullah`,
+    siteHeadline: `Osama Abdullah`,
     siteUrl: `https://osamaabdullah.gatsbyjs.io/`,
-    siteDescription: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and line highlighting.`,
+    siteDescription: `Osama Abdullah blog`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
-    author: `@lekoarts_de`,
+    author: `abdullah21673@hotmail.com`,
   },
   trailingSlash: `never`,
   plugins: [
@@ -42,6 +42,10 @@ const config: GatsbyConfig = {
             name: `Github`,
             url: `https://github.com/osama2kabdullah`,
           },
+          {
+            name: `Linkedin`,
+            url: `https://www.linkedin.com/in/md-abdullah-9121b5228`,
+          },
         ],
       },
     },
@@ -54,9 +58,9 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Osama Abdullah -blog - @lekoarts/gatsby-theme-minimal-blog`,
+        name: `Osama Abdullah`,
         short_name: `Osama-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        description: `Osama Abdullah blog`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
@@ -123,7 +127,7 @@ const config: GatsbyConfig = {
   }
 }`,
             output: `rss.xml`,
-            title: `Osama Blog - @lekoarts/gatsby-theme-minimal-blog`,
+            title: `Osama Blog`,
           },
         ],
       },
