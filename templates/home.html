@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Osama</title>
-    <link rel="stylesheet" href="assets/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/styles.css') }}" />
   </head>
   <body>
     <div class="container-md p-0 p-md-4">
@@ -232,7 +232,8 @@
       </div>
     </div>
 
-    <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="assets/script.js"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/script.js') }}"></script>
+
   </body>
 </html>
