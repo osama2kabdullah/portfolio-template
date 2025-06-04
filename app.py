@@ -32,21 +32,21 @@ def index():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
+    # if request.method == "POST":
+    #     username = request.form.get("username")
+    #     password = request.form.get("password")
 
-        conn = sqlite3.connect(DATABASE)
-        cursor = conn.cursor()
-        cursor.execute("SELECT id FROM users WHERE username = ? AND password = ?", (username, password))
-        user = cursor.fetchone()
-        conn.close()
+    #     conn = sqlite3.connect(DATABASE)
+    #     cursor = conn.cursor()
+    #     cursor.execute("SELECT id FROM users WHERE username = ? AND password = ?", (username, password))
+    #     user = cursor.fetchone()
+    #     conn.close()
 
-        if user:
-            session['user_id'] = user[0]
-            return redirect(url_for('account'))
-        else:
-            return render_template("login.html", error="Invalid credentials")
+    #     if user:
+    #         session['user_id'] = user[0]
+    #         return redirect(url_for('account'))
+    #     else:
+    #         return render_template("login.html", error="Invalid credentials")
 
     return render_template("login.html")
 
@@ -76,6 +76,10 @@ def account():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+@app.route("/forgot-password", methods=["GET", "POST"])
+def forgot_password():
+    return render_template("forgot_password.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
