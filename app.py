@@ -1,9 +1,19 @@
 from flask import Flask, render_template, request
+import sqlite3
+import os
 
 app = Flask(__name__)
+DATABASE = os.path.join(os.path.dirname(__file__), 'db', 'data.db')
 
 @app.route("/")
 def home():
+    # conn = sqlite3.connect(DATABASE)
+    # cursor = conn.cursor()
+    # cursor.execute("""
+    #     SELECT * FROM projects
+    # """)
+    # projects = cursor.fetchall()
+    # conn.close()
     return render_template("home.html")
 
 @app.route("/api/projects")
