@@ -5,4 +5,7 @@
 {% block content %}
     <h1>Welcome to the Portfolio App</h1>
     <p>This is the homepage.</p>
+    {% for user in users %}
+      <li><strong>{{ user[0] }}</strong> ({{ user[1] }}) - {{ user[2] }}</li>
+    {% endfor %}
 {% endblock %}

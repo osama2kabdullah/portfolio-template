@@ -2,4 +2,4 @@ flask
 python-dotenv
 gunicorn
 flask_sqlalchemy
-flask-migrate
+psycopg2-binary

@@ -51,15 +51,17 @@ SQLALCHEMY_DATABASE_URI=postgresql://username:password@localhost:5432/dbname
 
 ---
 
-### 5. Initialize database
+### 5. Set up the PostgreSQL database manually
 
-Ensure PostgreSQL is running and the database exists, then run:
+1. Ensure PostgreSQL is installed and running on your machine.
+2. Create the database (via terminal or pgAdmin).
+3. Run the provided `schema.sql` to create tables:
 
 ```bash
-flask db init          # Only the first time
-flask db migrate -m "Initial migration"
-flask db upgrade
+psql -U your_username -d dbname -f schema.sql
 ```
+
+> Make sure `schema.sql` contains your table definitions (you can ask me to help generate it).
 
 ---
 
@@ -68,6 +70,8 @@ flask db upgrade
 ```bash
 flask run
 ```
+
+Open your browser: [http://localhost:5000](http://localhost:5000)
 
 ---
 
@@ -85,8 +89,8 @@ flask run
 2. Go to [Render](https://render.com/).
 3. Create a new **Web Service**:
    - Connect to your GitHub repo.
-   - Use build command: `pip install -r requirements.txt`
-   - Use start command: `gunicorn run:app`
+   - Build command: `pip install -r requirements.txt`
+   - Start command: `gunicorn run:app`
 4. Add environment variables via Render dashboard:
    - `FLASK_ENV=production`
    - `SECRET_KEY=your_secret`
@@ -96,12 +100,10 @@ flask run
 
 ## 📄 Project Overview
 
-> I am going to develop a web application. It is more like a practice project, but I will also use it as a personal portfolio builder.
-
 This is a portfolio landing page builder:
-- Users can register and login.
-- They get their own dashboard to update profile info.
-- A public shareable link is generated for each profile.
+- Users can register and log in.
+- Each user has a dashboard to manage their profile.
+- A public, shareable link is generated for each profile.
 
 ---
 
