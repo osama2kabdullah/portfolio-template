@@ -11,3 +11,11 @@ def index():
 @main.route('/login')
 def login():
     return render_template('login.html')
+
+@main.route('/register')
+def register():
+    return render_template('register.html')
+
+@main.route('/forgot_password')
+def forgot_password():
+    return render_template('forgot-password.html')

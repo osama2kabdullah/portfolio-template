@@ -1,0 +1,11 @@
+@media (max-width: 767.98px) {
+  .no-border-mobile {
+    border: none !important;
+  }
+  .top-border-mobile {
+    border-top: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  }
+  .bottom-border-mobile {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+  }
+}
