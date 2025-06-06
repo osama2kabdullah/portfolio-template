@@ -1,0 +1,20 @@
+// ERD
+// Paste this into dbdiagram.io
+
+Table freelancers {
+  id integer [primary key, increment]
+  full_name varchar [not null]
+  email varchar [not null, unique]
+  password_hash text [not null]
+  created_at timestamp [default: `now()`]
+  last_login timestamp
+}
+
+Table freelancer_info {
+  id integer [primary key, increment]
+  freelancer_id integer [not null, unique]
+  security_question varchar [not null]
+  security_answer_hash text [not null]
+}
+
+Ref: freelancer_info.freelancer_id > freelancers.id
