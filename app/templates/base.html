@@ -56,14 +56,18 @@
               <a class="nav-link" href="{{ url_for('page.index') }}#about">About</a>
             </li>
             <li class="nav-item">
-              <a
-                class="btn btn-outline-primary me-2"
-                href="{{ url_for('page.login') }}"
-                >Login</a
-              >
-              <a class="btn btn-primary" href="{{ url_for('page.register') }}"
-                >Register</a
-              >
+              {% if session.get('user_id') %}
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">Logout</a>
+              {% else %}
+                <a
+                  class="btn btn-outline-primary me-2"
+                  href="{{ url_for('auth.login') }}"
+                  >Login</a
+                >
+                <a class="btn btn-primary" href="{{ url_for('auth.register') }}"
+                  >Register</a
+                >
+              {% endif %}
             </li>
             <!-- <li class="nav-item">
                 <a class="btn btn-outline-primary mx-2" href="#">Account</a>

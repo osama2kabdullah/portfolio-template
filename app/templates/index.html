@@ -4,27 +4,6 @@
 
 {% block content %}
 
-<form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data" onsubmit="return handleUpload(event)">
-  <label>
-    Image 1:
-    <input type="file" name="images1" class="image-input" />
-  </label><br>
-
-  <label>
-    Image 2:
-    <input type="file" name="images2" class="image-input" />
-  </label><br>
-
-  <label>
-    Image 3:
-    <input type="file" name="images3" class="image-input" />
-  </label><br>
-
-  <button type="submit">Upload</button>
-</form>
-
-<div id="gallery"></div>
-
     <div id="about" class="px-4 pt-5 my-5 text-center border-bottom"> 
       <h1 class="display-4 fw-bold text-body-emphasis">Centered screenshot</h1> 
       <div class="col-lg-6 mx-auto"> 

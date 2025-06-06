@@ -1,17 +1,18 @@
--- schema.sql
+-- creating users table
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(120) UNIQUE NOT NULL,
-    password_hash VARCHAR(128) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE freelancers (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR NOT NULL,
+  email VARCHAR NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  last_login TIMESTAMP
 );
 
--- dummy data
-INSERT INTO users (username, email, password_hash) VALUES
-('john_doe', 'john@example.com', 'hashedpassword123'),
-('jane_smith', 'jane@example.com', 'hashedpassword456'),
-('test_user1', 'test1@example.com', 'testhash789'),
-('developer_ali', 'ali@devmail.com', 'supersecurehash321'),
-('newbie123', 'newbie@demo.com', 'simplehash456');
+CREATE TABLE freelancer_info (
+  id SERIAL PRIMARY KEY,
+  freelancer_id INTEGER NOT NULL UNIQUE,
+  security_question VARCHAR NOT NULL,
+  security_answer_hash TEXT NOT NULL,
+  FOREIGN KEY (freelancer_id) REFERENCES freelancers(id)
+);

@@ -4,43 +4,60 @@
 
 {% block content %}
     <div class="container">
-      <div class="row justify-content-center align-items-center min-vh-100">
-        <div class="col-md-6 col-lg-5">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-lg-5 my-5">
           <div class="card shadow">
             <div class="card-body p-5">
               <h2 class="card-title text-center mb-4">Register</h2>
-              <form>
+              <form method="POST" action="{{ url_for('auth.register') }}">
+                
                 <div class="mb-3">
                   <label for="name" class="form-label">Full Name</label>
-                  <input type="text" class="form-control" id="name" required />
+                  <input type="text" class="form-control" id="name" name="name" value="{{ request.form.name or '' }}" required />
                 </div>
+
                 <div class="mb-3">
                   <label for="email" class="form-label">Email address</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    required
-                  />
+                  <input type="email" class="form-control" id="email" name="email" value="{{ request.form.email or '' }}" required />
                 </div>
+
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="password"
-                    required
-                  />
+                  <input type="password" class="form-control" id="password" name="password" required />
                 </div>
+
+                <div class="mb-3">
+                  <label for="confirm_password" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm_password" name="confirm_password" required />
+                </div>
+
+                <div class="mb-3">
+                  <label for="security_question" class="form-label">Security Question</label>
+                  <select class="form-control" id="security_question" name="security_question" required>
+                    <option value="">Select a question</option>
+                    <option value="What was your first pet's name?">What was your first pet's name?</option>
+                    <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                    <option value="What was your first school?">What was your first school?</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="security_answer" class="form-label">Your Answer</label>
+                  <input type="text" class="form-control" id="security_answer" name="security_answer" required />
+                </div>
+
+                {% if error %}
+                  <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+
                 <div class="d-grid mb-3">
-                  <button type="submit" class="btn btn-primary">
-                    Register
-                  </button>
+                  <button type="submit" class="btn btn-primary">Register</button>
                 </div>
+
                 <div class="text-center">
                   <p>
                     Already have an account?
-                    <a href="{{ url_for('page.login') }}" class="text-decoration-none">Login</a>
+                    <a href="{{ url_for('auth.login') }}" class="text-decoration-none">Login</a>
                   </p>
                 </div>
               </form>
