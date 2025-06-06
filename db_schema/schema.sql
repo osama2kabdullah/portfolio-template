@@ -16,3 +16,13 @@ CREATE TABLE freelancer_info (
   security_answer_hash TEXT NOT NULL,
   FOREIGN KEY (freelancer_id) REFERENCES freelancers(id)
 );
+
+--media table for defult media storage
+CREATE TABLE media (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(255) NOT NULL,
+  alt_text VARCHAR(255),
+  caption VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

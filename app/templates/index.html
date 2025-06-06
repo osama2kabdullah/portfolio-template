@@ -4,233 +4,226 @@
 
 {% block content %}
 
-    <div id="about" class="px-4 pt-5 my-5 text-center border-bottom"> 
-      <h1 class="display-4 fw-bold text-body-emphasis">Centered screenshot</h1> 
+    <section id="about" class="px-4 pt-5 my-5 text-center border-bottom"> 
+      <h1 class="display-4 fw-bold text-body-emphasis">Build Your Perfect Portfolio</h1> 
       <div class="col-lg-6 mx-auto"> 
-        <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p> 
+        <p class="lead mb-4">Create a stunning portfolio website in minutes, no coding required. Showcase your work, skills, and experience with our easy-to-use builder. Perfect for designers, developers, artists, and professionals looking to make an impact.</p> 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> 
-          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button> 
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> 
+          <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg px-4 me-sm-3">Get Started Free</a> 
+          <a href="#features" class="btn btn-outline-secondary btn-lg px-4">Learn More</a> 
         </div> 
       </div> 
-      <div class="overflow-hidden" style="max-height: 30vh;"> 
-        <div class="container px-5"> 
-          <img src="{{ url_for('static', filename='images/demo-screen.png') }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy"> 
+      {% if demo_image %}
+        <div class="overflow-hidden" style="max-height: 30vh;"> 
+          <div class="container px-5">
+            <img src="{{ demo_image.url }}" class="img-fluid border rounded-3 shadow-lg mb-4" alt="{{ demo_image.alt_text or 'Demo Portfolio Page' }}" width="700" height="500" loading="lazy">
+          </div>
         </div> 
-      </div> 
-    </div>
+      {% endif %}
+    </section>
 
-    <div id="features" class="container px-4 py-5">
-      <h2 class="pb-2 border-bottom">Features with title</h2>
+    <section id="features" class="container px-4 py-5">
+      <h2 class="pb-2 border-bottom">Why Choose Our Portfolio Builder</h2>
       <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
         <div class="col d-flex flex-column align-items-start gap-2">
           <h2 class="fw-bold text-body-emphasis">
-            Left-aligned title explaining these awesome features
+            Everything You Need to Showcase Your Work
           </h2>
           <p class="text-body-secondary">
-            Paragraph of text beneath the heading to explain the heading. We'll add
-            onto it with another sentence and probably just keep going until we run
-            out of words.
+            Our platform provides all the tools to create a professional portfolio that stands out. Whether you're a designer, developer, photographer, or any kind of creative professional, we've got you covered with customizable templates and easy-to-use tools.
           </p>
-          <a href="#" class="btn btn-primary btn-lg">Primary button</a>
+          <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">Create Your Portfolio Now</a>
         </div>
         <div class="col">
           <div class="row row-cols-1 row-cols-sm-2 g-4">
             <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
-              >
+              <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
                   <use xlink:href="#collection"></use>
                 </svg>
               </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+              <h4 class="fw-semibold mb-0 text-body-emphasis">Beautiful Templates</h4>
               <p class="text-body-secondary">
-                Paragraph of text beneath the heading to explain the heading.
+                Choose from dozens of professionally designed templates that work on all devices.
               </p>
             </div>
             <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
-              >
+              <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
                   <use xlink:href="#gear-fill"></use>
                 </svg>
               </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+              <h4 class="fw-semibold mb-0 text-body-emphasis">Easy Customization</h4>
               <p class="text-body-secondary">
-                Paragraph of text beneath the heading to explain the heading.
+                Change colors, fonts, and layouts with our intuitive drag-and-drop editor.
               </p>
             </div>
             <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
-              >
+              <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
                   <use xlink:href="#speedometer"></use>
                 </svg>
               </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+              <h4 class="fw-semibold mb-0 text-body-emphasis">Fast Performance</h4>
               <p class="text-body-secondary">
-                Paragraph of text beneath the heading to explain the heading.
+                Lightweight, optimized portfolios that load quickly and rank well in search.
               </p>
             </div>
             <div class="col d-flex flex-column gap-2">
-              <div
-                class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3"
-              >
+              <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
                 <svg class="bi" width="1em" height="1em" aria-hidden="true">
                   <use xlink:href="#table"></use>
                 </svg>
               </div>
-              <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
+              <h4 class="fw-semibold mb-0 text-body-emphasis">Analytics</h4>
               <p class="text-body-secondary">
-                Paragraph of text beneath the heading to explain the heading.
+                Track visitors and see which projects get the most attention.
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div id="pricing" class=" container mb-3 text-center">
-      
+    <section id="pricing" class="container mb-5 text-center">
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center"> 
-        <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1> 
-        <p class="fs-5 text-body-secondary">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p> 
+        <h1 class="display-4 fw-normal text-body-emphasis">Completely Free</h1> 
+        <p class="fs-5 text-body-secondary">Enjoy all features at no cost. No hidden charges, no premium plans.</p> 
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card mb-4 rounded-3 shadow-sm border-success">
+            <div class="card-header py-3 text-bg-success">
+              <h4 class="my-0 fw-normal">All Features Included</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">
+                $0<small class="text-body-secondary fw-light">/forever</small>
+              </h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>1 Portfolio</li>
+                <li>Unlimited Projects</li>
+                <li>1 Template</li>
+                <li>No Credit Card Required</li>
+                <li>No Trial Period</li>
+              </ul>
+              <a href="{{ url_for('auth.register') }}" class="w-100 btn btn-lg btn-success">
+                Start Now - It's Free
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="pricing-footer text-muted mt-3">
+        <p class="mb-0">We believe in open access to all features.</p>
+        <p>No plans to introduce paid features in the future.</p>
+      </div>
+    </section>
+
+    <!-- <section id="pricing" class="container mb-3 text-center">
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center"> 
+        <h1 class="display-4 fw-normal text-body-emphasis">Simple, Transparent Pricing</h1> 
+        <p class="fs-5 text-body-secondary">Start for free and upgrade when you need more features. Cancel anytime.</p> 
       </div>
 
       <div class="row row-cols-1 row-cols-md-3">
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3"><h4 class="my-0 fw-normal">Free</h4></div>
+            <div class="card-header py-3"><h4 class="my-0 fw-normal">Starter</h4></div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">
                 $0<small class="text-body-secondary fw-light">/mo</small>
               </h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>10 users included</li>
-                <li>2 GB of storage</li>
-                <li>Email support</li>
-                <li>Help center access</li>
+                <li>1 Portfolio</li>
+                <li>10 Projects</li>
+                <li>Basic Templates</li>
+                <li>Community Support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-outline-primary">
-                Sign up for free
-              </button>
+              <a href="{{ url_for('auth.register') }}" class="w-100 btn btn-lg btn-outline-primary">
+                Get Started
+              </a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm">
-            <div class="card-header py-3"><h4 class="my-0 fw-normal">Pro</h4></div>
+            <div class="card-header py-3"><h4 class="my-0 fw-normal">Professional</h4></div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">
-                $15<small class="text-body-secondary fw-light">/mo</small>
+                $9<small class="text-body-secondary fw-light">/mo</small>
               </h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>20 users included</li>
-                <li>10 GB of storage</li>
-                <li>Priority email support</li>
-                <li>Help center access</li>
+                <li>3 Portfolios</li>
+                <li>Unlimited Projects</li>
+                <li>Premium Templates</li>
+                <li>Priority Support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">
-                Get started
-              </button>
+              <a href="{{ url_for('auth.register') }}" class="w-100 btn btn-lg btn-primary">
+                Upgrade Now
+              </a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card mb-4 rounded-3 shadow-sm border-primary">
             <div class="card-header py-3 text-bg-primary border-primary">
-              <h4 class="my-0 fw-normal">Enterprise</h4>
+              <h4 class="my-0 fw-normal">Agency</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">
                 $29<small class="text-body-secondary fw-light">/mo</small>
               </h1>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>30 users included</li>
-                <li>15 GB of storage</li>
-                <li>Phone and email support</li>
-                <li>Help center access</li>
+                <li>10 Portfolios</li>
+                <li>Unlimited Projects</li>
+                <li>All Templates + Custom</li>
+                <li>24/7 Dedicated Support</li>
               </ul>
-              <button type="button" class="w-100 btn btn-lg btn-primary">
-                Contact us
-              </button>
+              <a href="{{ url_for('auth.register') }}" class="w-100 btn btn-lg btn-primary">
+                Contact Sales
+              </a>
             </div>
           </div>
         </div>
       </div>
+    </section> -->
 
-    </div>
-
-    <div class="container mb-4" style="max-width: 800px;">
-      <h2 class="text-center mb-4">Compare plans</h2>
+    <section class="container mb-4" style="max-width: 800px;">
+      <h2 class="text-center mb-4">Compare Plans</h2>
       <div class="table-responsive">
         <table class="table text-center">
           <thead>
             <tr>
               <th style="width: 34%"></th>
-              <th style="width: 22%">Free</th>
-              <th style="width: 22%">Pro</th>
-              <th style="width: 22%">Enterprise</th>
+              <th style="width: 22%">Starter</th>
+              <th style="width: 22%">Professional</th>
+              <th style="width: 22%">Agency</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" class="text-start">Public</th>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
+              <th scope="row" class="text-start">Number of Portfolios</th>
+              <td>1</td>
+              <td>3</td>
+              <td>10</td>
             </tr>
             <tr>
-              <th scope="row" class="text-start">Private</th>
-              <td></td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <th scope="row" class="text-start">Permissions</th>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
-              <td>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
-                </svg>
-              </td>
+              <th scope="row" class="text-start">Projects</th>
+              <td>10</td>
+              <td>Unlimited</td>
+              <td>Unlimited</td>
             </tr>
             <tr>
-              <th scope="row" class="text-start">Sharing</th>
+              <th scope="row" class="text-start">Templates</th>
+              <td>Basic</td>
+              <td>Premium</td>
+              <td>All + Custom</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Custom Domain</th>
               <td></td>
               <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -244,7 +237,7 @@
               </td>
             </tr>
             <tr>
-              <th scope="row" class="text-start">Unlimited members</th>
+              <th scope="row" class="text-start">Analytics</th>
               <td></td>
               <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -258,9 +251,13 @@
               </td>
             </tr>
             <tr>
-              <th scope="row" class="text-start">Extra security</th>
+              <th scope="row" class="text-start">Priority Support</th>
               <td></td>
-              <td></td>
+              <td>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
+                </svg>
+              </td>
               <td>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
                   <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"/>
@@ -270,53 +267,51 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </section>
 
-    <div class="container mb-3 text-center" id="faq">
-      
+    <section class="container mb-3 text-center" id="faq">
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center"> 
-        <h1 class="display-4 fw-normal text-body-emphasis">FAQ</h1>
+        <h1 class="display-4 fw-normal text-body-emphasis">Frequently Asked Questions</h1>
       </div>
 
       <div class="accordion mb-4 mx-auto" style="max-width: 800px;">
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Accordion Item #1
+              Do I need coding skills to use this?
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              <strong>No coding skills required!</strong> Our portfolio builder is designed for everyone. The intuitive drag-and-drop interface makes it easy to create a professional portfolio without writing a single line of code. However, if you know HTML/CSS, you can add custom code for even more flexibility.
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Accordion Item #2
+              Can I use my own domain name?
             </button>
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              <strong>Yes!</strong> With our Professional and Agency plans, you can connect your own custom domain (like yourname.com). The Starter plan includes a free subdomain (yourname.portfoliobuilder.com). We provide simple instructions for setting up your domain.
             </div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Accordion Item #3
+              How do I export my portfolio if I cancel?
             </button>
           </h2>
           <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              <strong>We make it easy to take your portfolio with you.</strong> You can export your entire portfolio as HTML/CSS files that you can host anywhere. Your content (text, images) can also be exported in standard formats. We believe you should own your work.
             </div>
           </div>
         </div>
       </div>
-
-    </div>
+    </section>
     
 {% endblock %}
