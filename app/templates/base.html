@@ -18,7 +18,7 @@
     <!-- Header -->
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('main.index') }}">Home</a>
+        <a class="navbar-brand" href="{{ url_for('page.index') }}">Home</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -39,29 +39,29 @@
               <a
                 class="nav-link active"
                 aria-current="page"
-                href="{{ url_for('main.index') }}"
+                href="{{ url_for('page.index') }}"
                 >Home</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('main.index') }}#features">Features</a>
+              <a class="nav-link" href="{{ url_for('page.index') }}#features">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('main.index') }}#pricing">Pricing</a>
+              <a class="nav-link" href="{{ url_for('page.index') }}#pricing">Pricing</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('main.index') }}#faq">FAQs</a>
+              <a class="nav-link" href="{{ url_for('page.index') }}#faq">FAQs</a>
             </li>
             <li class="nav-item me-2">
-              <a class="nav-link" href="{{ url_for('main.index') }}#about">About</a>
+              <a class="nav-link" href="{{ url_for('page.index') }}#about">About</a>
             </li>
             <li class="nav-item">
               <a
                 class="btn btn-outline-primary me-2"
-                href="{{ url_for('main.login') }}"
+                href="{{ url_for('page.login') }}"
                 >Login</a
               >
-              <a class="btn btn-primary" href="{{ url_for('main.register') }}"
+              <a class="btn btn-primary" href="{{ url_for('page.register') }}"
                 >Register</a
               >
             </li>

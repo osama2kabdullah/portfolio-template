@@ -1,21 +1,19 @@
 from flask import Blueprint, render_template
-from app.db_utils import get_all_users
 
-main = Blueprint('main', __name__)
+page = Blueprint('page', __name__)
 
-@main.route('/')
+@page.route('/')
 def index():
-    users = get_all_users()
-    return render_template('index.html', users=users)
+    return render_template('index.html')
 
-@main.route('/login')
+@page.route('/login')
 def login():
     return render_template('login.html')
 
-@main.route('/register')
+@page.route('/register')
 def register():
     return render_template('register.html')
 
-@main.route('/forgot_password')
+@page.route('/forgot_password')
 def forgot_password():
     return render_template('forgot-password.html')
